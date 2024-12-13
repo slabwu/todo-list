@@ -9,7 +9,7 @@ class Controller {
     }
 
     addProject(title) {
-        this.#projects.push(new Project(`${title}`));
+        this.#projects.push(new Project(title));
     }
 
     addToDo(title, description, project) {
@@ -23,9 +23,22 @@ class Controller {
     getProjects = () => this.#projects;
 }
 
-// class Interface {
-    
-// }
+class Interface {
+    //content = document.getElementById("content");
+    constructor() {
+        const content = document.createElement("div")
+        document.body.appendChild(content)
+        content.id = "content";
+
+        const addProject = document.createElement("button");
+        addProject.textContent = "Add Project";
+        content.appendChild(addProject);
+        addProject.addEventListener("click", () => {
+            go.addProject("Test");
+            console.log(go.getProjects());
+        })
+    }
+}
 
 class Project {
     #todos = [];
@@ -49,13 +62,7 @@ class ToDo {
 }
 
 const go = new Controller();
-
-
-
-go.addToDo("meow", "meow meow", "Default");
-go.addToDo("meow", "meow meow meow", "Default");
-
-console.log(go.getToDos("Default"));
+const start = new Interface();
 
 
 
