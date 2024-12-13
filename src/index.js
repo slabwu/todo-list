@@ -1,8 +1,17 @@
 import "./styles.css";
 import { compareAsc, format } from "date-fns";
 import { go } from "./todos";
-import { Interface } from "./interface";
+import { screen } from "./interface";
 
 export const Display = (function() {
-    const start = new Interface();
+
+    screen.createButton("Add Project", () => {
+        go.addProject("Test");
+        console.log(go.getProjects());
+    });
+    screen.createButton("Add To Do", () => {
+        go.addToDoTo("Default", "Dishes", "Clean the dishes")
+        console.log(go.getToDosFrom("Default"));
+    });
+
 })();

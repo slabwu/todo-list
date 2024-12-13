@@ -1,23 +1,28 @@
-export class Interface {
+class Interface {
     constructor() {
         const content = document.createElement("div")
         document.body.appendChild(content)
         content.id = "content";
+    }
 
-        const addProject = document.createElement("button");
-        addProject.textContent = "Add Project";
-        content.appendChild(addProject);
-        addProject.addEventListener("click", () => {
-            go.addProject("Test");
-            console.log(go.getProjects());
-        })
+    createButton(name, method) {
+        const button = document.createElement("button");
+        button.textContent = name;
+        button.id = this.camelCase(name);
+        content.appendChild(button);
+        button.addEventListener("click", method)
+    }
 
-        const addToDo = document.createElement("button");
-        addToDo.textContent = "Add To Do";
-        content.appendChild(addToDo);
-        addToDo.addEventListener("click", () => {
-            go.addToDoTo("Default", "Dishes", "Clean the dishes")
-            console.log(go.getToDosFrom("Default"));
-        })
+    camelCase(str) {
+        return str
+            .replace(/\s(.)/g, function (a) {
+                return a.toUpperCase();
+            })
+            .replace(/\s/g, '')
+            .replace(/^(.)/, function (b) {
+                return b.toLowerCase();
+            });
     }
 }
+
+export const screen = new Interface();
