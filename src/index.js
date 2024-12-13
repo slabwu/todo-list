@@ -6,16 +6,19 @@ class Controller {
 
     constructor() {
         this.#projects.push(new Project("Default"));
-        this.#projects.push(new Project("2"));
-        this.#projects.push(new Project("3"));
+    }
+
+    addProject(title) {
+        this.#projects.push(new Project(`${title}`));
     }
 
     addToDo(title, description, project) {
         let currentProject = this.#projects.find((element) => element.title === project);
         if (!currentProject) throw new Error('Project does not exist!');
         currentProject.addToDo(title, description);
-        console.log(currentProject);
     }
+
+    getToDos = (project) => this.#projects.find((element) => element.title === project).getToDos();
 
     getProjects = () => this.#projects;
 }
@@ -46,5 +49,13 @@ class ToDo {
 }
 
 const go = new Controller();
+
+
+
+go.addToDo("meow", "meow meow", "Default");
+go.addToDo("meow", "meow meow meow", "Default");
+
+console.log(go.getToDos("Default"));
+
 
 
