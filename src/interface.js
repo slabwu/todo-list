@@ -2,24 +2,29 @@ import { go } from "./todos";
 
 class Interface {
     constructor() {
-        const content = document.createElement("div")
-        document.body.appendChild(content)
+        const content = document.createElement("div");
+        document.body.appendChild(content);
         content.id = "content";
+
+        const toDoList = document.createElement("div");
+        content.appendChild(toDoList);
+        toDoList.id = 'toDoList'
     }
 
-    createButton(name, method) {
+    createButton(name, location, method) {
         const button = document.createElement("button");
         button.textContent = name;
         button.id = this.camelCase(name);
-        content.appendChild(button);
+        location.appendChild(button);
         button.addEventListener("click", method)
     }
 
     loadToDos(project) {
+        toDoList.innerHTML = '';
         let toDos = go.getToDosFrom(project);
         toDos.forEach((toDo) => {
             const container = document.createElement("div");
-            content.appendChild(container);
+            toDoList.appendChild(container);
 
             for (const element in toDo) {
                 const elementContainer = document.createElement("p");
@@ -27,8 +32,8 @@ class Interface {
                 elementContainer.textContent = toDo[element];
                 container.appendChild(elementContainer);
             };
-
-            this.createButton("X", () => {console.log("Delete")})
+            
+            this.createButton("X", container, () => {console.log("Delete")})
         });
     }
 
