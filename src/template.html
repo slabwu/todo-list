@@ -6,16 +6,18 @@
     <title>To Do</title>
 </head>
 <body>
-    <dialog open>
+    <dialog id="toDoDialog">
         <p>Add a to-do</p>
-        <form method="dialog">
+        <form method="dialog" action="./index.js">
         <label for="title">Title</label> <br>
         <input type="text" id="title" name="title"> <br>
 
         <label for="description">Description</label> <br>
         <textarea id="description" name="description" rows="4"> 
         </textarea> <br>
-        <input type="submit" value="Submit">
+
+        <button value="cancel" formmethod="dialog">Cancel</button>
+        <button id="confirmBtn" value="default">Confirm</button>
         </form>
       </dialog>      
 </body>
