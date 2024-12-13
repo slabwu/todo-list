@@ -2,17 +2,16 @@ import "./styles.css";
 import { compareAsc, format } from "date-fns";
 
 class Controller {
-    projects = [];
-    defaultProject = new Project("Default");
+    #projects = [];
 
     constructor() {
-        this.projects.push(this.defaultProject);
+        this.#projects.push(new Project("Default"));
     }
     test() {
         console.log('works');
     }
 
-    getProjects = () => this.projects;
+    getProjects = () => this.#projects;
 }
 
 // class Interface {
@@ -33,6 +32,6 @@ class Project {
 
 const go = new Controller();
 
-console.log(go.defaultProject)
-console.log(go.projects)
+
+console.log(go.getProjects())
 
