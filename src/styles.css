@@ -1,3 +1,27 @@
 body {
     background-color: white;
 }
+
+.toDoItem {
+    display: flex;
+    width: 500px;
+    align-items: center;
+    border: 1px grey solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.toDoItem p.title {
+    flex: 0 0 80px;
+    font-weight: bold;
+}
+
+.toDoItem p.description {
+    flex: 1;
+}
+
+.toDoItem button.x {
+    width: 30px;
+    height: 30px;
+}
