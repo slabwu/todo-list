@@ -7,9 +7,6 @@ class Controller {
     constructor() {
         this.#projects.push(new Project("Default"));
     }
-    test() {
-        console.log('works');
-    }
 
     getProjects = () => this.#projects;
 }
