@@ -14,4 +14,8 @@ export const Display = (function() {
         console.log(go.getToDosFrom("Default"));
     });
 
+
+    go.addToDoTo("Default", "hi", "hihihi");
+    go.addToDoTo("Default", "hi", "hihihi");
+    screen.loadToDos("Default");
 })();

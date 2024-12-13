@@ -1,3 +1,5 @@
+import { go } from "./todos";
+
 class Interface {
     constructor() {
         const content = document.createElement("div")
@@ -11,6 +13,23 @@ class Interface {
         button.id = this.camelCase(name);
         content.appendChild(button);
         button.addEventListener("click", method)
+    }
+
+    loadToDos(project) {
+        let toDos = go.getToDosFrom(project);
+        toDos.forEach((toDo) => {
+            const container = document.createElement("div");
+            content.appendChild(container);
+
+            for (const element in toDo) {
+                const elementContainer = document.createElement("p");
+                elementContainer.classList.add(`${element}`)
+                elementContainer.textContent = toDo[element];
+                container.appendChild(elementContainer);
+            };
+
+            this.createButton("X", () => {console.log("Delete")})
+        });
     }
 
     camelCase(str) {
