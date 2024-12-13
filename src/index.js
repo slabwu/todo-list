@@ -12,13 +12,13 @@ class Controller {
         this.#projects.push(new Project(title));
     }
 
-    addToDo(title, description, project) {
+    addToDoTo(project, title, description) {
         let currentProject = this.#projects.find((element) => element.title === project);
         if (!currentProject) throw new Error('Project does not exist!');
         currentProject.addToDo(title, description);
     }
 
-    getToDos = (project) => this.#projects.find((element) => element.title === project).getToDos();
+    getToDosFrom = (project) => this.#projects.find((element) => element.title === project).getToDos();
 
     getProjects = () => this.#projects;
 }
