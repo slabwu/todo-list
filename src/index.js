@@ -5,6 +5,7 @@ import { screen } from "./interface";
 
 export const Display = (function() {
     const toDoDialog = document.getElementById("toDoDialog");
+    let currentProject = "Default";
 
     // screen.createButton("Add Project", content, () => {
     //     go.addProject("Test");
@@ -17,8 +18,8 @@ export const Display = (function() {
         toDoDialog.showModal();
     });
 
-    go.addToDoTo("Default", "Eat", "Finish dinner");
-    go.addToDoTo("Default", "Walk", "Walk the dog");
+    go.addToDoTo(currentProject, "Eat", "Finish dinner");
+    go.addToDoTo(currentProject, "Walk", "Walk the dog");
     screen.loadToDos("Default");
 })();
 
