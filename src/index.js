@@ -1,75 +1,8 @@
 import "./styles.css";
 import { compareAsc, format } from "date-fns";
+import { go } from "./todos";
+import { Interface } from "./interface";
 
-class Controller {
-    #projects = [];
-
-    constructor() {
-        this.#projects.push(new Project("Default"));
-    }
-
-    addProject(title) {
-        this.#projects.push(new Project(title));
-    }
-
-    addToDoTo(project, title, description) {
-        let currentProject = this.#projects.find((element) => element.title === project);
-        if (!currentProject) throw new Error('Project does not exist!');
-        currentProject.addToDo(title, description);
-    }
-
-    getToDosFrom = (project) => this.#projects.find((element) => element.title === project).getToDos();
-
-    getProjects = () => this.#projects;
-}
-
-class Interface {
-    constructor() {
-        const content = document.createElement("div")
-        document.body.appendChild(content)
-        content.id = "content";
-
-        const addProject = document.createElement("button");
-        addProject.textContent = "Add Project";
-        content.appendChild(addProject);
-        addProject.addEventListener("click", () => {
-            go.addProject("Test");
-            console.log(go.getProjects());
-        })
-
-        const addToDo = document.createElement("button");
-        addToDo.textContent = "Add To Do";
-        content.appendChild(addToDo);
-        addToDo.addEventListener("click", () => {
-            go.addToDoTo("Default", "Dishes", "Clean the dishes")
-            console.log(go.getToDosFrom("Default"));
-        })
-    }
-}
-
-class Project {
-    #todos = [];
-
-    constructor(title) {
-        this.title = title;
-    }
-
-    getToDos = () => this.#todos;
-
-    addToDo(title, description) {
-        this.#todos.push(new ToDo(title, description));
-    }
-}
-
-class ToDo {
-    constructor(title, description) {
-        this.title = title;
-        this.description = description;
-    }
-}
-
-const go = new Controller();
-const start = new Interface();
-
-
-
+export const Display = (function() {
+    const start = new Interface();
+})();
