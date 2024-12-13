@@ -5,10 +5,10 @@ import { screen } from "./interface";
 
 export const Display = (function() {
 
-    screen.createButton("Add Project", content, () => {
-        go.addProject("Test");
-        console.log(go.getProjects());
-    });
+    // screen.createButton("Add Project", content, () => {
+    //     go.addProject("Test");
+    //     console.log(go.getProjects());
+    // });
     screen.createButton("Add To Do", content, () => {
         go.addToDoTo("Default", "Dishes", "Clean the dishes")
         console.log(go.getToDosFrom("Default"));

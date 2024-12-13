@@ -14,7 +14,7 @@ class Interface {
     createButton(name, location, method) {
         const button = document.createElement("button");
         button.textContent = name;
-        button.id = this.camelCase(name);
+        button.classList.add(`${this.camelCase(name)}`);
         location.appendChild(button);
         button.addEventListener("click", method)
     }
@@ -24,6 +24,7 @@ class Interface {
         let toDos = go.getToDosFrom(project);
         toDos.forEach((toDo) => {
             const container = document.createElement("div");
+            container.classList.add("toDoItem");
             toDoList.appendChild(container);
 
             for (const element in toDo) {
