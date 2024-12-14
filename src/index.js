@@ -12,9 +12,9 @@ Tasks.add("Eat", "Finish dinner", "Inbox");
 Tasks.add("Walk", "Take a stroll with the dog", "Inbox");
 Tasks.add("Clean", "Tidy up the room", "Inbox");
 
-addProject("Inbox");
-addProject("Home");
-addProject("Work");
-addProject("Study");
+Projects.add("Inbox");
+Projects.add("Home");
+Projects.add("Work");
+Projects.add("Study");
 
 

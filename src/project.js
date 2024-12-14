@@ -18,14 +18,10 @@ class ProjectManager {
         return this.#currentProject;
     }
 
-    add(project) {
-        this.#projectList.push(project);
+    add(name) {
+        this.#projectList.push(new Project(name));
         Events.emit("updateProjects");
     }
 }
 
 export const Projects = new ProjectManager;
-
-export function addProject(name) {
-        Projects.add(new Project(name));
-}
