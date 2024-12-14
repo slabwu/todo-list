@@ -37,6 +37,8 @@ body {
 
 
 
+
+
 #projectList {
     display: flex;
     flex-direction: column;
@@ -54,6 +56,12 @@ body {
     background-color: lime;
 }
 
+#projectList > button.active {
+    background-color: aqua;
+}
+
+
+
 
 
 #addTaskBtn {
@@ -68,11 +76,15 @@ body {
 
 
 
+
+
 dialog {
     padding: 30px;
     border: none;
     border-radius: 20px;
 }
+
+
 
 
 

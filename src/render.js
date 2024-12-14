@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, addButton, deleteElementsFrom } from "./helper";
+import { test, addElement, addButton, deleteElementsFrom, camelCase } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
@@ -31,7 +31,14 @@ class Renderer {
     renderProjects() {
         deleteElementsFrom("projectList");
         Projects.list.forEach((project) => {
-            addButton(`${project.name}`, "projectList", () => {project.setAsCurrent()});
+            addButton(`${project.name}`, "projectList", () => {
+                project.setAsCurrent();
+                [...document.querySelector("#projectList").children].forEach(project => {
+                    project.classList.remove("active");
+                });
+                document.querySelector(`#${camelCase(Projects.current)}Btn`).classList.add("active");
+                
+            });
         })
     }
 
