@@ -1,10 +1,11 @@
 import { Events } from "./pubsub";
 import { test, addElement, addButton, deleteElementsFrom } from "./helper";
 import { Tasks } from "./task";
-import { Projects } from "./project";
+import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
 
 class Renderer {
+    projectTitle;
     constructor() {
         Events.on("updateTasks", this.renderTasks);
         Events.on("updateProjects", this.renderProjects);
@@ -16,7 +17,7 @@ class Renderer {
         addElement("footer", "footer", "content");
 
         addElement("Right Meow", "h1", "header", "title", true);
-        addElement("Inbox", "h2", "main", "projectTitle", true);
+        addElement(`${Projects.current}`, "h2", "main", "projectTitle", true);
         addButton("Add Task", "main", () => {TaskDialog.open()});
         addElement("projectList", "div", "sidebar");
         addElement("taskList", "div", "main");
@@ -30,11 +31,13 @@ class Renderer {
     renderProjects() {
         deleteElementsFrom("projectList");
         Projects.list.forEach((project) => {
-            addButton(`${project.name}`, "projectList", () => {});
+            addButton(`${project.name}`, "projectList", () => {project.setAsCurrent()});
         })
     }
 
     renderTasks() {
+        document.querySelector(".projectTitle").textContent = `${Projects.current}`;
+
         deleteElementsFrom("taskList");
         Tasks.list.forEach((task, index) => {
             let taskContainer = `task${index+1}`;
