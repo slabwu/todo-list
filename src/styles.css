@@ -2,7 +2,7 @@ body {
     background-color: white;
 }
 
-.toDoItem {
+.task {
     display: flex;
     width: 500px;
     align-items: center;
@@ -12,16 +12,16 @@ body {
     border-radius: 10px;
 }
 
-.toDoItem p.title {
+.task .name {
     flex: 0 0 80px;
     font-weight: bold;
 }
 
-.toDoItem p.description {
+.task .description {
     flex: 1;
 }
 
-.toDoItem button.x {
+/* .task button.x {
     width: 30px;
     height: 30px;
-}
+} */
