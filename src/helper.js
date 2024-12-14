@@ -12,3 +12,7 @@ export function addElement(name, tag, target, text) {
         document.getElementById(`${target}`).appendChild(element);
     }
 }
+
+export function deleteElementsFrom(target) {
+    document.getElementById(`${target}`).innerHTML = ``;
+}

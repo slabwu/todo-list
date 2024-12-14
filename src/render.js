@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement } from "./helper";
+import { test, addElement, deleteElementsFrom } from "./helper";
 import { Tasks } from "./task";
 
 class Renderer {
@@ -10,6 +10,7 @@ class Renderer {
     }
 
     render() {
+        deleteElementsFrom("taskList");
         Tasks.list.forEach((task, index) => {
             let taskContainer = `task${index+1}`;
             addElement(taskContainer, "div", "taskList");
