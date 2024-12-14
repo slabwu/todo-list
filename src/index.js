@@ -7,7 +7,7 @@ import { Screen } from "./render";
 
 Screen.render();
 
-addTask("test", "test", "Default");
-addTask("test1", "test1", "Default");
-addTask("test2", "test2", "Default");
+addTask("Eat", "Finish dinner", "Default");
+addTask("Walk", "Take a stroll with the dog", "Default");
+addTask("Clean", "Tidy up the room", "Default");
 //test(Tasks.list);
