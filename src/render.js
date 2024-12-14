@@ -6,7 +6,8 @@ class Renderer {
     constructor() {
         Events.on("update", this.render);
 
-        addElement("content", "div", document.body);
+        addElement("content", "div", "body");
+        addElement("hello", "div", "content");
     }
 
     render() {

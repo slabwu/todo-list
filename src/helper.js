@@ -4,7 +4,10 @@ export function test(code) {
 
 export function addElement(name, tag, target) {
     const element = document.createElement(`${tag}`);
-    element.classList.add(`${name}`);
-    element.textContent = `${name}`;
-    target.appendChild(element);
+    element.id = `${name}`;
+    if (target === "body") {
+        document.body.appendChild(element);
+    } else {
+        document.getElementById(`${target}`).appendChild(element);
+    }
 }
