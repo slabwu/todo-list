@@ -7,8 +7,8 @@ import { Screen } from "./render";
 
 
 addTask("test", "test", "Default");
-addTask("test", "test", "Default");
-addTask("test", "test", "Default");
+addTask("test1", "test1", "Default");
+addTask("test2", "test2", "Default");
 
 Screen.render();
 //test(Tasks.list);

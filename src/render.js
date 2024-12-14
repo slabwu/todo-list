@@ -5,13 +5,17 @@ import { Tasks } from "./task";
 class Renderer {
     constructor() {
         Events.on("update", this.render);
-
         addElement("content", "div", "body");
-        addElement("hello", "div", "content");
+        addElement("taskList", "div", "content");
     }
 
     render() {
-        test(Tasks.list)
+        Tasks.list.forEach((task, index) => {
+            let taskContainer = `task${index+1}`;
+            addElement(taskContainer, "div", "taskList");
+            addElement(task.name, "p", taskContainer, true);
+            addElement(task.description, "p", taskContainer, true);
+        })
     }
 }
 
