@@ -1,4 +1,5 @@
 import { constructFrom } from "date-fns";
+import { test } from "./helper";
 
 export class Task {
     constructor(name, description, project) {
@@ -9,12 +10,16 @@ export class Task {
     }
 }
 
-export class List {
-    #tasklist = [];
-    get tasks() {
-        return this.#tasklist;
+class List {
+    #listItems = [];
+
+    get list() {
+        return this.#listItems;
     }
 }
+
+export const Tasks = new List();
+
 
 export function addTask(name, description, project) {
     console.log(new Task(name, description, project));
