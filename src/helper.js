@@ -2,9 +2,10 @@ export function test(code) {
     console.log(code);
 }
 
-export function addElement(name, tag, target, text) {
+export function addElement(name, tag, target, className, text) {
     const element = document.createElement(`${tag}`);
     (text) ? element.textContent = name: element.id = name;
+    element.classList.add(`${className}`);
     if (target === "body") {
         document.body.appendChild(element);
     } else {

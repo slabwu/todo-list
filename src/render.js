@@ -15,9 +15,9 @@ class Renderer {
         deleteElementsFrom("taskList");
         Tasks.list.forEach((task, index) => {
             let taskContainer = `task${index+1}`;
-            addElement(taskContainer, "div", "taskList");
-            addElement(task.name, "p", taskContainer, true);
-            addElement(task.description, "p", taskContainer, true);
+            addElement(taskContainer, "div", "taskList", "task");
+            addElement(task.name, "p", taskContainer, "name", true);
+            addElement(task.description, "p", taskContainer, "description", true);
         })
     }
 }
