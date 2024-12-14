@@ -1,14 +1,16 @@
 import { Events } from "./pubsub";
-import { test } from "./helper";
+import { test, addElement } from "./helper";
+import { Tasks } from "./task";
 
 class Renderer {
     constructor() {
         Events.on("update", this.render);
-        test(Events.list)
+
+        addElement("content", "div", document.body);
     }
 
     render() {
-
+        test(Tasks.list)
     }
 }
 

@@ -5,7 +5,10 @@ import { test } from "./helper";
 import { Events } from "./pubsub";
 import { Screen } from "./render";
 
+
 addTask("test", "test", "Default");
 addTask("test", "test", "Default");
 addTask("test", "test", "Default");
+
+Screen.render();
 //test(Tasks.list);
