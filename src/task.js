@@ -20,6 +20,7 @@ class List {
 
     add(task) {
         this.#listItems.push(task);
+        Events.emit("update");
     }
 }
 
