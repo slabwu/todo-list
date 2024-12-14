@@ -5,7 +5,7 @@ import { TaskDialog } from "./dialog";
 
 class Renderer {
     constructor() {
-        Events.on("update", this.render);
+        Events.on("update", this.renderTasks);
         addElement("content", "div", "body");
 
         addElement("header", "header", "content");
@@ -17,7 +17,7 @@ class Renderer {
         addElement("taskList", "div", "main");
     }
 
-    render() {
+    renderTasks() {
         deleteElementsFrom("taskList");
         Tasks.list.forEach((task, index) => {
             let taskContainer = `task${index+1}`;

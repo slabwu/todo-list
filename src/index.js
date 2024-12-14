@@ -5,7 +5,7 @@ import { test } from "./helper";
 import { Events } from "./pubsub";
 import { Screen } from "./render";
 
-Screen.render();
+Screen.renderTasks();
 
 addTask("Eat", "Finish dinner", "Default");
 addTask("Walk", "Take a stroll with the dog", "Default");
