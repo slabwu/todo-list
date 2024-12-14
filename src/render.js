@@ -7,8 +7,14 @@ class Renderer {
     constructor() {
         Events.on("update", this.render);
         addElement("content", "div", "body");
-        addButton("Add Task", "content", () => {TaskDialog.open()});
-        addElement("taskList", "div", "content");
+
+        addElement("header", "header", "content");
+        addElement("sidebar", "nav", "content");
+        addElement("main", "main", "content");
+        addElement("footer", "footer", "content");
+
+        addButton("Add Task", "main", () => {TaskDialog.open()});
+        addElement("taskList", "div", "main");
     }
 
     render() {
