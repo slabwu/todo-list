@@ -24,7 +24,7 @@ class List {
     }
 }
 
-export const Tasks = new List();
+export const Tasks = new List;
 
 
 export function addTask(name, description, project) {

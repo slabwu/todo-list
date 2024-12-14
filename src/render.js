@@ -1,13 +1,14 @@
 import { Events } from "./pubsub";
 import { test, addElement, addButton, deleteElementsFrom } from "./helper";
 import { Tasks } from "./task";
+import { TaskDialog } from "./dialog";
 
 class Renderer {
     constructor() {
         Events.on("update", this.render);
         addElement("content", "div", "body");
         addElement("taskList", "div", "content");
-        addButton("Add To Do", "content", test);
+        addButton("Add To Do", "content", () => {TaskDialog.open()});
     }
 
     render() {
@@ -21,4 +22,4 @@ class Renderer {
     }
 }
 
-export const Screen = new Renderer();
+export const Screen = new Renderer;
