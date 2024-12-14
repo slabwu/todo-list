@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, deleteElementsFrom } from "./helper";
+import { test, addElement, addButton, deleteElementsFrom } from "./helper";
 import { Tasks } from "./task";
 
 class Renderer {
@@ -7,6 +7,7 @@ class Renderer {
         Events.on("update", this.render);
         addElement("content", "div", "body");
         addElement("taskList", "div", "content");
+        addButton("Add To Do", "content", test);
     }
 
     render() {
