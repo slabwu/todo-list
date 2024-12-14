@@ -16,11 +16,15 @@ class List {
     get list() {
         return this.#listItems;
     }
+
+    add(task) {
+        this.#listItems.push(task);
+    }
 }
 
 export const Tasks = new List();
 
 
 export function addTask(name, description, project) {
-    console.log(new Task(name, description, project));
+    Tasks.add(new Task(name, description, project));
 }
