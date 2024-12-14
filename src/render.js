@@ -5,7 +5,7 @@ import { TaskDialog } from "./dialog";
 
 class Renderer {
     constructor() {
-        Events.on("update", this.renderTasks);
+        Events.on("updateTasks", this.renderTasks);
         addElement("content", "div", "body");
 
         addElement("header", "header", "content");
