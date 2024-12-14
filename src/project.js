@@ -15,7 +15,7 @@ class ProjectManager {
 
     add(project) {
         this.#projectList.push(project);
-        Events.emit("update");
+        Events.emit("updateProjects");
     }
 }
 

@@ -6,13 +6,15 @@ import { test } from "./helper";
 import { Events } from "./pubsub";
 import { Screen } from "./render";
 
-Screen.renderTasks();
+Screen.render();
 
 addTask("Eat", "Finish dinner", "Inbox");
 addTask("Walk", "Take a stroll with the dog", "Inbox");
 addTask("Clean", "Tidy up the room", "Inbox");
 
 addProject("Inbox");
-addProject("Cat");
+addProject("Home");
+addProject("Work");
+addProject("Study");
 
-test(Projects.list)
+
