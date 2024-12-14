@@ -15,6 +15,8 @@ class Renderer {
         addElement("main", "main", "content");
         addElement("footer", "footer", "content");
 
+        addElement("Right Meow", "h1", "header", "title", true);
+        addElement("Inbox", "h2", "main", "projectTitle", true);
         addButton("Add Task", "main", () => {TaskDialog.open()});
         addElement("projectList", "div", "sidebar");
         addElement("taskList", "div", "main");

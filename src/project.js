@@ -8,9 +8,14 @@ export class Project {
 
 class ProjectManager {
     #projectList = [];
+    #currentProject;
 
     get list() {
         return this.#projectList;
+    }
+
+    get current() {
+        return this.#currentProject;
     }
 
     add(project) {
