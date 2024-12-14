@@ -18,15 +18,10 @@ class List {
         return this.#listItems;
     }
 
-    add(task) {
-        this.#listItems.push(task);
+    add(name, description, project) {
+        this.#listItems.push(new Task(name, description, project));
         Events.emit("updateTasks");
     }
 }
 
 export const Tasks = new List;
-
-
-export function addTask(name, description, project) {
-    Tasks.add(new Task(name, description, project));
-}

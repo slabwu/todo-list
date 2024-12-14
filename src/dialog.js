@@ -1,4 +1,4 @@
-import { addTask } from "./task";
+import { Tasks } from "./task";
 
 export class Dialog {
     constructor(name) {
@@ -14,7 +14,7 @@ export class Dialog {
                     this.answers[element.name] = element.value;
                 }
             });
-            addTask(`${this.answers.name}`,`${this.answers.description}`, "Default");
+            Tasks.add(`${this.answers.name}`,`${this.answers.description}`, "Default");
             this.close();
         });
     }

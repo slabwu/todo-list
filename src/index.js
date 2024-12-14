@@ -8,9 +8,9 @@ import { Screen } from "./render";
 
 Screen.render();
 
-addTask("Eat", "Finish dinner", "Inbox");
-addTask("Walk", "Take a stroll with the dog", "Inbox");
-addTask("Clean", "Tidy up the room", "Inbox");
+Tasks.add("Eat", "Finish dinner", "Inbox");
+Tasks.add("Walk", "Take a stroll with the dog", "Inbox");
+Tasks.add("Clean", "Tidy up the room", "Inbox");
 
 addProject("Inbox");
 addProject("Home");
