@@ -6,3 +6,7 @@ export class Task {
         this.completed = false;
     }
 }
+
+export function addTask(name, description, project) {
+    console.log(new Task(name, description, project));
+}
