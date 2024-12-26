@@ -8,13 +8,12 @@ import { Screen } from "./render";
 
 Screen.render();
 
-Tasks.add("Eat", "Finish dinner", "Inbox");
-Tasks.add("Walk", "Take a stroll with the dog", "Work");
-Tasks.add("Clean", "Tidy up the room", "Inbox");
+let defaultTasks = [
+    ["Eat", "Finish dinner", "Inbox"],
+    ["Walk", "Take a stroll with the dog", "Work"],
+    ["Clean", "Tidy up the room", "Inbox"]
+];
+defaultTasks.forEach(task => Tasks.add(task[0], task[1], task[2]));
 
-Projects.add("Inbox");
-Projects.add("Home");
-Projects.add("Work");
-Projects.add("Study");
-
-
+let defaultProjects = [ "Inbox", "Home", "Work", "Study" ];
+defaultProjects.forEach(project => Projects.add(project));
