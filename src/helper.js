@@ -26,7 +26,7 @@ export function addButton(name, target, fn) {
 }
 
 export function deleteElementsFrom(target) {
-    document.getElementById(`${target}`).innerHTML = ``;
+    document.getElementById(target).innerHTML = ``;
 }
 
 export function camelCase(str) {

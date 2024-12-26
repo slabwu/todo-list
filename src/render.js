@@ -46,7 +46,8 @@ class Renderer {
         document.querySelector(".projectTitle").textContent = `${Projects.current}`;
 
         deleteElementsFrom("taskList");
-        Tasks.list.forEach((task, index) => {
+        let currentTasks = Tasks.list.filter((task) => task.project === Projects.current);
+        currentTasks.forEach((task, index) => {
             let taskContainer = `task${index+1}`;
             addElement(taskContainer, "div", "taskList", "task");
             addElement(task.name, "p", taskContainer, "name", true);

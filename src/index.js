@@ -9,7 +9,7 @@ import { Screen } from "./render";
 Screen.render();
 
 Tasks.add("Eat", "Finish dinner", "Inbox");
-Tasks.add("Walk", "Take a stroll with the dog", "Inbox");
+Tasks.add("Walk", "Take a stroll with the dog", "Work");
 Tasks.add("Clean", "Tidy up the room", "Inbox");
 
 Projects.add("Inbox");
