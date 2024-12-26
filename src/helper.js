@@ -2,7 +2,7 @@ export function test(code) {
     console.log(code);
 }
 
-export function addElement(name, tag, target, className, text) {
+export function addElement(name, tag, target, className = undefined, text = undefined) {
     const element = document.createElement(`${tag}`);
     (text) ? element.textContent = name : element.id = name;
     if (className) element.classList.add(`${className}`);
