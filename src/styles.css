@@ -107,6 +107,14 @@ dialog {
     flex: 1;
 }
 
+.task .name.completed {
+    text-decoration: line-through;
+}
+
+.task .description.completed {
+    text-decoration: line-through;
+}
+
 /* .task button.x {
     width: 30px;
     height: 30px;

@@ -54,6 +54,15 @@ class Renderer {
             addCheckbox(task, taskContainer);
             addElement(task.name, "p", taskContainer, "name", true);
             addElement(task.description, "p", taskContainer, "description", true);
+
+            let elements = [...document.getElementById(`${taskContainer}`).children];
+            elements.shift();
+            test(elements);
+            if (task.completed) {
+                elements.forEach(element => element.classList.add("completed"));
+            } else {
+                elements.forEach(element => element.classList.remove("completed"));
+            }
         })
     }
 }

@@ -1,3 +1,5 @@
+import { Events } from "./pubsub";
+
 export function test(code) {
     console.log(code);
 }
@@ -34,6 +36,7 @@ export function addCheckbox(task, target) {
     document.getElementById(`${target}`).appendChild(element);
     element.addEventListener("click", () => {
         task.completed = element.checked;
+        Events.emit("updateTasks");
     });
 }
 
