@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, addButton, deleteElementsFrom, camelCase } from "./helper";
+import { test, addElement, addButton, deleteElementsFrom, camelCase, addCheckbox } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
@@ -50,6 +50,8 @@ class Renderer {
         currentTasks.forEach((task, index) => {
             let taskContainer = `task${index + 1}`;
             addElement(taskContainer, "div", "taskList", "task");
+
+            addCheckbox(task, taskContainer);
             addElement(task.name, "p", taskContainer, "name", true);
             addElement(task.description, "p", taskContainer, "description", true);
         })

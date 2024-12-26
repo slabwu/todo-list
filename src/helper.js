@@ -25,6 +25,15 @@ export function addButton(name, target, fn) {
     element.addEventListener("click", (e) => {fn(e)});
 }
 
+export function addCheckbox(task, target) {
+    const element = document.createElement("input");
+    element.type = "checkbox";
+    element.id = task.name;
+    element.name = task.name;
+    (task.completed) ? element.checked = true : element.checked = false;
+    document.getElementById(`${target}`).appendChild(element);
+}
+
 export function deleteElementsFrom(target) {
     document.getElementById(target).innerHTML = ``;
 }
