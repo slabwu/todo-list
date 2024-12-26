@@ -32,6 +32,9 @@ export function addCheckbox(task, target) {
     element.name = task.name;
     (task.completed) ? element.checked = true : element.checked = false;
     document.getElementById(`${target}`).appendChild(element);
+    element.addEventListener("click", () => {
+        task.completed = element.checked;
+    });
 }
 
 export function deleteElementsFrom(target) {
