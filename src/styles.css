@@ -126,9 +126,84 @@ body {
 
 
 dialog {
-    padding: 30px;
+    padding: 0 20px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
+    color: var(--dark);
+}
+
+
+
+dialog p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+dialog label {
+    font-size: 14px;
+}
+
+form input[type="text"] {
+    margin-top: 5px;
+    width: 300px;
+    border: solid 1px var(--light);
+    padding: 5px 10px 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+form label[for="name"]::after {
+    content: '*';
+    color: var(--mid);
+}
+
+form textarea {
+    margin-top: 5px;
+    width: 300px !important;
+    font-family: Arial;
+    resize: none;
+    border: solid 1px var(--light);
+    padding: 5px 10px 5px;
+    height: 32px;
+    border-radius: 5px;
+    margin-bottom: 14px;
+}
+
+form input[type="date"] {
+    font-family: Arial;
+    resize: none;
+    border: solid 1px var(--light);
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 14px;
+}
+
+form select {
+    border: solid 1px var(--light);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+form .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    margin-left: 132px;
+    
+}
+
+form .buttons button {
+    border-radius: 5px;
+    border: none;
+    height: 34px;
+    width: 90px;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+form .buttons #confirmBtn {
+    color: white;
+    background-color: var(--dark);
 }
 
 
@@ -193,8 +268,3 @@ dialog {
     text-decoration: line-through;
     opacity: 30%;
 }
-
-/* .task button.x {
-    width: 30px;
-    height: 30px;
-} */
