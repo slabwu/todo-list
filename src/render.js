@@ -39,8 +39,8 @@ class Renderer {
                     project.classList.remove("active");
                 });
                 document.querySelector(`#${camelCase(Projects.current)}Btn`).classList.add("active");
-                
             });
+            if (index === 0) document.querySelector(`#inboxBtn`).classList.add("active");
         })
     }
 
