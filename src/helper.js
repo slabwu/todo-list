@@ -28,14 +28,13 @@ export function addButton(name, target, fn) {
 }
 
 export function addCheckbox(task, target) {
-    const element = document.createElement("input");
-    element.type = "checkbox";
+    const element = document.createElement("div");
     element.id = task.name;
     element.name = task.name;
-    (task.completed) ? element.checked = true : element.checked = false;
+    element.classList.add('checkbox');
     document.getElementById(`${target}`).appendChild(element);
     element.addEventListener("click", () => {
-        task.completed = element.checked;
+        (task.completed) ? task.completed = false : task.completed = true;
         Events.emit("updateTasks");
     });
 }

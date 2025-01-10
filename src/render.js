@@ -14,13 +14,14 @@ class Renderer {
         addElement("header", "header", "content");
         addElement("sidebar", "nav", "content");
         addElement("main", "main", "content");
+        addElement("mainContainer", "mainContainer", "main");
         addElement("footer", "footer", "content");
 
-        addElement("Right Meow", "h1", "header", "title", true);
-        addElement(`${Projects.current}`, "h2", "main", "projectTitle", true);
-        addButton("Add Task", "main", () => {TaskDialog.open()});
+        addElement("Right Now", "h1", "header", "title", true);
+        addElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle", true);
         addElement("projectList", "div", "sidebar");
-        addElement("taskList", "div", "main");
+        addElement("taskList", "div", "mainContainer");
+        addButton("Add Task", "mainContainer", () => {TaskDialog.open()});
     }
 
     render() {
@@ -54,10 +55,10 @@ class Renderer {
             addCheckbox(task, taskContainer);
             addElement(task.name, "p", taskContainer, "name", true);
             addElement(task.description, "p", taskContainer, "description", true);
+            addElement('divider', "div", "taskList", "divider");
 
             let elements = [...document.getElementById(`${taskContainer}`).children];
-            elements.shift();
-            test(elements);
+
             if (task.completed) {
                 elements.forEach(element => element.classList.add("completed"));
             } else {
