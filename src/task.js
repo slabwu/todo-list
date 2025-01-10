@@ -20,8 +20,8 @@ class List {
         return this.#listItems;
     }
 
-    add(name, description, project) {
-        this.#listItems.push(new Task(name, description, project));
+    add(name, description, project, date) {
+        this.#listItems.push(new Task(name, description, project, date));
         Events.emit("updateTasks");
     }
 }

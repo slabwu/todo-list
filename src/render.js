@@ -56,6 +56,7 @@ class Renderer {
             addCheckbox(task, taskContainer);
             addTextElement(task.name, "p", taskContainer, "name");
             addTextElement(task.description, "p", taskContainer, "description");
+            addTextElement(task.date, "p", taskContainer, "date");
             addElement("divider", "div", "taskList", "divider");
 
             let elements = [...document.getElementById(`${taskContainer}`).children];

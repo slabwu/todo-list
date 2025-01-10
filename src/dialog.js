@@ -14,7 +14,7 @@ export class Dialog {
                     this.answers[element.name] = element.value;
                 }
             });
-            Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
+            Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${new Date(this.answers.date).toLocaleDateString()}`);
             this.close();
         });
     }
