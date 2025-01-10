@@ -3,11 +3,13 @@ import { test } from "./helper";
 import { Events } from "./pubsub";
 
 export class Task {
-    constructor(name, description, project) {
+    constructor(name, description, project, date = undefined) {
         this.name = name;
         this.description = description;
         this.project = project;
+        this.date = date;
         this.completed = false;
+        this.priority = false;
     }
 }
 
