@@ -62,9 +62,10 @@ body {
     background-color: var(--light);
     color: var(--dark);
     font-size: 18px;
-    padding: 10px 140px 10px 0;
+    padding: 10px 0 10px 50px;
     border: none;
     border-radius: 8px;
+    text-align: left;
 }
 
 #projectList > button:hover {

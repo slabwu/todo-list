@@ -31,7 +31,8 @@ class Renderer {
 
     renderProjects() {
         deleteElementsFrom("projectList");
-        Projects.list.forEach((project) => {
+        Projects.list.forEach((project, index) => {
+            if (index === 4) addElement('Projects', "h2", "projectList", "projects", true);
             addButton(`${project.name}`, "projectList", () => {
                 project.setAsCurrent();
                 [...document.querySelector("#projectList").children].forEach(project => {
@@ -55,7 +56,7 @@ class Renderer {
             addCheckbox(task, taskContainer);
             addElement(task.name, "p", taskContainer, "name", true);
             addElement(task.description, "p", taskContainer, "description", true);
-            addElement('divider', "div", "taskList", "divider");
+            addElement("divider", "div", "taskList", "divider");
 
             let elements = [...document.getElementById(`${taskContainer}`).children];
 
