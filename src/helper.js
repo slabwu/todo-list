@@ -4,10 +4,21 @@ export function test(code) {
     console.log(code);
 }
 
-export function addElement(name, tag, target, className = undefined, text = undefined) {
+export function addElement(name, tag, target, className = undefined) {
     const element = document.createElement(`${tag}`);
-    (text) ? element.textContent = name : element.id = name;
-    if (className) element.classList.add(`${className}`);
+    element.id = name;
+    if (className) element.classList.add(className);
+    if (target === "body") {
+        document.body.appendChild(element);
+    } else {
+        document.getElementById(`${target}`).appendChild(element);
+    }
+}
+
+export function addTextElement(name, tag, target, className = undefined) {
+    const element = document.createElement(`${tag}`);
+    element.textContent = name;
+    element.classList.add(`${className}`);
     if (target === "body") {
         document.body.appendChild(element);
     } else {

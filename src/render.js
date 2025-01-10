@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, addButton, deleteElementsFrom, camelCase, addCheckbox } from "./helper";
+import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
@@ -18,7 +18,7 @@ class Renderer {
         addElement("footer", "footer", "content");
 
         addElement("Right Now", "h1", "header", "title", true);
-        addElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle", true);
+        addTextElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle");
         addElement("projectList", "div", "sidebar");
         addElement("taskList", "div", "mainContainer");
         addButton("Add Task", "mainContainer", () => {TaskDialog.open()});
@@ -32,7 +32,7 @@ class Renderer {
     renderProjects() {
         deleteElementsFrom("projectList");
         Projects.list.forEach((project, index) => {
-            if (index === 4) addElement('Projects', "h2", "projectList", "projects", true);
+            if (index === 4) addTextElement('Projects', "h2", "projectList", "projects");
             addButton(`${project.name}`, "projectList", () => {
                 project.setAsCurrent();
                 [...document.querySelector("#projectList").children].forEach(project => {
@@ -54,8 +54,8 @@ class Renderer {
             addElement(taskContainer, "div", "taskList", "task");
 
             addCheckbox(task, taskContainer);
-            addElement(task.name, "p", taskContainer, "name", true);
-            addElement(task.description, "p", taskContainer, "description", true);
+            addTextElement(task.name, "p", taskContainer, "name");
+            addTextElement(task.description, "p", taskContainer, "description");
             addElement("divider", "div", "taskList", "divider");
 
             let elements = [...document.getElementById(`${taskContainer}`).children];
