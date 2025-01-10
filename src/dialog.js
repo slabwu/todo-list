@@ -14,8 +14,7 @@ export class Dialog {
                     this.answers[element.name] = element.value;
                 }
             });
-            Tasks.add(`${this.answers.name}`,`${this.answers.description}`, "Default", `${this.answers.date}`);
-            console.log(this.answers);
+            Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
             this.close();
         });
     }
