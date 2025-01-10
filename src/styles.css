@@ -1,7 +1,14 @@
+:root {
+    --light: rgb(202, 195, 240);
+    --mid: rgb(181, 172, 233);
+    --dark: darkslateblue;
+  }
+  
+
 body {
     background-color: white;
     font-family: Arial, sans-serif;
-    color: darkslateblue;
+    color: var(--dark);
     margin: 0;
 }
 
@@ -18,14 +25,14 @@ body {
 
 #content > header {
     grid-area: head;
-    background-color: darkslateblue;
+    background-color: var(--dark);
     color: white;
     padding-left: 30px;
 }
 
 #content > nav {
     grid-area: side;
-    background-color: rgb(223, 221, 236);
+    background-color: var(--light);
 }
 
 #content > main {
@@ -36,7 +43,7 @@ body {
 
 #content > footer {
     grid-area: foot;
-    background-color: darkslateblue;
+    background-color: var(--dark);
 }
 
 
@@ -52,7 +59,8 @@ body {
 
 #projectList > button{
     font-weight: normal;
-    background-color: rgb(223, 221, 236);
+    background-color: var(--light);
+    color: var(--dark);
     font-size: 18px;
     padding: 10px 140px 10px 0;
     border: none;
@@ -60,12 +68,13 @@ body {
 }
 
 #projectList > button:hover {
-    background-color: rgb(202, 195, 240);
+    background-color: var(--mid);
 }
 
 #projectList > button.active {
-    background-color: rgb(202, 195, 240);
+    background-color: var(--dark);
     font-weight: bold;
+    color: white;
 }
 
 
@@ -91,13 +100,13 @@ body {
     height: 50px;
     padding: 0 0 10px 20px;
     background-color: white;
-    color: darkslateblue;
+    color: var(--dark);
     font-size: 16px;
     text-align: left;
 }
 
 #addTaskBtn:hover {
-    background-color: rgb(223, 221, 236);
+    background-color: var(--light);
 }
 
 #addTaskBtn::before {
@@ -138,13 +147,13 @@ dialog {
 }
 
 .task:hover {
-    background-color: rgb(223, 221, 236);
+    background-color: var(--light);
 }
 
 .task .checkbox {
     height: 14px;
     width: 14px;
-    border: solid 2px darkslateblue;
+    border: solid 2px var(--dark);
     border-radius: 10px;
     background-color: none;
     margin-right: 10px;
@@ -160,7 +169,7 @@ dialog {
 }
 
 .divider {
-    background-color: rgb(223, 221, 236);
+    background-color: var(--light);
     height: 1px;
     margin: 0 10px 0;
 }
@@ -170,7 +179,7 @@ dialog {
 
 
 .task .checkbox.completed {
-    background-color: darkslateblue;
+    background-color: var(--dark);
 }
 
 .task .name.completed {
