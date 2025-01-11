@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox, overdue } from "./helper";
+import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox, overdue, filterTasks } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
@@ -48,7 +48,7 @@ class Renderer {
         document.querySelector(".projectTitle").textContent = `${Projects.current}`;
 
         deleteElementsFrom("taskList");
-        let currentTasks = (Projects.current === "Inbox")? Tasks.list : Tasks.list.filter(task => task.project === Projects.current);
+        let currentTasks = filterTasks(Tasks.list);
         currentTasks.forEach((task, index) => {
             let taskContainer = `task${index + 1}`;
             addElement(taskContainer, "div", "taskList", "task");

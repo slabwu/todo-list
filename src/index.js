@@ -20,5 +20,5 @@ let defaultTasks = [
 ];
 defaultTasks.forEach(task => Tasks.add(task[0], task[1], task[2], task[3]));
 
-let defaultProjects = [ "Inbox", "Important", "Overdue", "Ongoing", "Home", "Work", "Study" ];
+let defaultProjects = [ "Inbox", "Important", "Overdue", "Upcoming", "Home", "Work", "Study" ];
 defaultProjects.forEach(project => Projects.add(project));

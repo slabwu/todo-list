@@ -1,4 +1,5 @@
 import { Events } from "./pubsub";
+import { Projects } from "./project"; 
 
 export function test(code) {
     console.log(code);
@@ -70,4 +71,20 @@ export function overdue(date) {
     let currentDate = new Date(Date.now()).toISOString();
 
     return inputDate < currentDate;
+}
+
+export function filterTasks(tasks) {
+    switch (Projects.current) {
+        case "Inbox":
+            return tasks;
+            break;
+        case "Important":
+            return tasks.filter(task => task.priority === true);
+        case "Overdue":
+            return tasks.filter(task => overdue(task.date) === true);
+        case "Upcoming":
+            return tasks.filter(task => overdue(task.date) === false);
+        default:
+            return tasks.filter(task => task.project === Projects.current);
+    }
 }
