@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox, overdue, filterTasks } from "./helper";
+import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox, overdue, filterTasks, addIcon } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
@@ -59,9 +59,9 @@ class Renderer {
             addTextElement(task.date, "p", taskContainer, "date");
             addElement("divider", "div", "taskList", "divider");
 
-            // addButton("star", taskContainer, () => {});
-            // addButton("pencil", taskContainer, () => {});
-            // addButton("delete", taskContainer, () => {});
+            addIcon("star_outline", taskContainer, () => {});
+            addIcon("edit", taskContainer, () => {});
+            addIcon("close", taskContainer, () => {});
 
             let elements = [...document.getElementById(`${taskContainer}`).children];
 

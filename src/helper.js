@@ -1,5 +1,6 @@
 import { Events } from "./pubsub";
 import { Projects } from "./project"; 
+import { add } from "date-fns";
 
 export function test(code) {
     console.log(code);
@@ -9,34 +10,38 @@ export function addElement(name, tag, target, className = undefined) {
     const element = document.createElement(`${tag}`);
     element.id = name;
     if (className) element.classList.add(className);
-    if (target === "body") {
-        document.body.appendChild(element);
-    } else {
-        document.getElementById(`${target}`).appendChild(element);
-    }
+    appendElement(element, target);
 }
 
 export function addTextElement(name, tag, target, className = undefined) {
     const element = document.createElement(`${tag}`);
     element.textContent = name;
     element.classList.add(`${className}`);
-    if (target === "body") {
-        document.body.appendChild(element);
-    } else {
-        document.getElementById(`${target}`).appendChild(element);
-    }
+    appendElement(element, target);
 }
 
 export function addButton(name, target, fn) {
     const element = document.createElement("button");
     element.textContent = name;
     element.id = `${camelCase(name)}Btn`;
+    appendElement(element, target);
+    element.addEventListener("click", (e) => {fn(e)});
+}
+
+export function addIcon(name, target, fn = undefined) {
+    const element = document.createElement("i");
+    element.classList.add("material-icons");
+    element.textContent = name;
+    appendElement(element, target);
+   if (fn) element.addEventListener("click", (e) => {fn(e)});
+}
+
+function appendElement(element, target) {
     if (target === "body") {
         document.body.appendChild(element);
     } else {
         document.getElementById(`${target}`).appendChild(element);
     }
-    element.addEventListener("click", (e) => {fn(e)});
 }
 
 export function addCheckbox(task, target) {

@@ -2,8 +2,11 @@
     --light: rgb(202, 195, 240);
     --mid: rgb(181, 172, 233);
     --dark: darkslateblue;
-  }
-  
+}
+
+
+
+
 
 body {
     background-color: white;
