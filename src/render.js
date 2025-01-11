@@ -17,7 +17,7 @@ class Renderer {
         addElement("mainContainer", "mainContainer", "main");
         addElement("footer", "footer", "content");
 
-        addElement("Right Now", "h1", "header", "title", true);
+        addTextElement("Right Now", "h1", "header", "title");
         addTextElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle");
         addElement("projectList", "div", "sidebar");
         addElement("taskList", "div", "mainContainer");
@@ -58,6 +58,9 @@ class Renderer {
             addTextElement(task.description, "p", taskContainer, "description");
             addTextElement(task.date, "p", taskContainer, "date");
             addElement("divider", "div", "taskList", "divider");
+            // addButton("star", taskContainer, () => {});
+            // addButton("pencil", taskContainer, () => {});
+            // addButton("delete", taskContainer, () => {});
 
             let elements = [...document.getElementById(`${taskContainer}`).children];
 
