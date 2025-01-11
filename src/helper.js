@@ -64,3 +64,10 @@ export function camelCase(str) {
             return b.toLowerCase();
         });
 }
+
+export function overdue(date) {
+    let inputDate = new Date(date.replace(/(\d\d)\/(\d\d)\/(\d{4})/, "$2-$1-$3")).toISOString();
+    let currentDate = new Date(Date.now()).toISOString();
+
+    return inputDate < currentDate;
+}

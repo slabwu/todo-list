@@ -246,6 +246,10 @@ form .buttons #confirmBtn {
     flex: 1;
 }
 
+.task .date.overdue {
+    color: red;
+}
+
 .divider {
     background-color: var(--light);
     height: 1px;
@@ -268,4 +272,10 @@ form .buttons #confirmBtn {
 .task .description.completed {
     text-decoration: line-through;
     opacity: 30%;
+}
+
+.task .date.completed {
+    text-decoration: line-through;
+    opacity: 30%;
+    color: var(--dark);
 }

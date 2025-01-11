@@ -1,5 +1,5 @@
 import { Events } from "./pubsub";
-import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox } from "./helper";
+import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox, overdue } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
 import { TaskDialog } from "./dialog";
@@ -58,6 +58,7 @@ class Renderer {
             addTextElement(task.description, "p", taskContainer, "description");
             addTextElement(task.date, "p", taskContainer, "date");
             addElement("divider", "div", "taskList", "divider");
+
             // addButton("star", taskContainer, () => {});
             // addButton("pencil", taskContainer, () => {});
             // addButton("delete", taskContainer, () => {});
@@ -68,6 +69,12 @@ class Renderer {
                 elements.forEach(element => element.classList.add("completed"));
             } else {
                 elements.forEach(element => element.classList.remove("completed"));
+            }
+
+            if (overdue(task.date)) {
+                elements[3].classList.add("overdue");
+            } else {
+                elements[3].classList.remove("overdue");
             }
         })
     }
