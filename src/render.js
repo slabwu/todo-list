@@ -17,6 +17,7 @@ class Renderer {
         addElement("mainContainer", "mainContainer", "main");
         addElement("footer", "footer", "content");
 
+        addIcon("done_all", "header");
         addTextElement("Right Now", "h1", "header", "title");
         addTextElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle");
         addElement("projectList", "div", "sidebar");
@@ -31,15 +32,17 @@ class Renderer {
 
     renderProjects() {
         deleteElementsFrom("projectList");
+        let icons = ["inbox", "star", "assignment_late", "watch_later", "format_list_bulleted"];
         Projects.list.forEach((project, index) => {
             if (index === 4) addTextElement('Projects', "h2", "projectList", "projects");
+            let icon = (index <= 4) ? icons[index]: icons[4];
             addButton(`${project.name}`, "projectList", () => {
                 project.setAsCurrent();
                 [...document.querySelector("#projectList").children].forEach(project => {
                     project.classList.remove("active");
                 });
                 document.querySelector(`#${camelCase(Projects.current)}Btn`).classList.add("active");
-            });
+            }, icon);
             if (index === 0) document.querySelector(`#inboxBtn`).classList.add("active");
         })
     }

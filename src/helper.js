@@ -20,12 +20,15 @@ export function addTextElement(name, tag, target, className = undefined) {
     appendElement(element, target);
 }
 
-export function addButton(name, target, fn) {
+export function addButton(name, target, fn, icon) {
     const element = document.createElement("button");
     element.textContent = name;
     element.id = `${camelCase(name)}Btn`;
     appendElement(element, target);
     element.addEventListener("click", (e) => {fn(e)});
+    if (icon) {
+        element.innerHTML = `<i class="material-icons">${icon}</i>` + name;
+    }
 }
 
 export function addIcon(name, target, fn = undefined) {
