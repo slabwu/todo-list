@@ -67,6 +67,7 @@ export function camelCase(str) {
 }
 
 export function overdue(date) {
+    if (date === "") return false;
     let inputDate = new Date(date.replace(/(\d\d)\/(\d\d)\/(\d{4})/, "$2-$1-$3")).toISOString();
     let currentDate = new Date(Date.now()).toISOString();
 
@@ -80,10 +81,13 @@ export function filterTasks(tasks) {
             break;
         case "Important":
             return tasks.filter(task => task.priority === true);
+            break;
         case "Overdue":
             return tasks.filter(task => overdue(task.date) === true);
+            break;
         case "Upcoming":
             return tasks.filter(task => overdue(task.date) === false);
+            break;
         default:
             return tasks.filter(task => task.project === Projects.current);
     }
