@@ -78,6 +78,7 @@ header .material-icons {
     border: none;
     border-radius: 8px;
     text-align: left;
+    cursor: pointer;
 }
 
 #projectList > button > i {
@@ -253,10 +254,11 @@ form .buttons #confirmBtn {
     border-radius: 10px;
     background-color: none;
     margin-right: 14px;
+    cursor: pointer;
 }
 
 .task .name {
-    flex: 0 0 250px;
+    flex: 0 1 250px;
     font-weight: bold;
 }
 
@@ -275,6 +277,10 @@ form .buttons #confirmBtn {
 .task .date.overdue {
     color: red;
 
+}
+
+i.material-icons {
+    cursor: pointer;
 }
 
 .divider {
