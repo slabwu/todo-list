@@ -264,8 +264,17 @@ form .buttons #confirmBtn {
     flex: 1;
 }
 
+.task .date {
+    margin-right: 30px;
+}
+
+.task i {
+    margin-right: 5px;
+}
+
 .task .date.overdue {
     color: red;
+
 }
 
 .divider {

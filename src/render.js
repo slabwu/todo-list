@@ -62,7 +62,8 @@ class Renderer {
             addTextElement(task.date, "p", taskContainer, "date");
             addElement("divider", "div", "taskList", "divider");
 
-            addIcon("star_outline", taskContainer, () => {});
+            let star = (task.priority) ? "star" : "star_outline";
+            addIcon(star, taskContainer, (e) => {task.favourite()});
             addIcon("edit", taskContainer, () => {});
             addIcon("close", taskContainer, () => {});
 

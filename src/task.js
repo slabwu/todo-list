@@ -11,6 +11,19 @@ export class Task {
         this.completed = false;
         this.priority = false;
     }
+
+    favourite() {
+        this.priority = (this.priority) ? false : true;
+        Events.emit("updateTasks")
+    }
+
+    edit() {
+
+    }
+
+    delete() {
+
+    }
 }
 
 class List {
