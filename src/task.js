@@ -20,10 +20,6 @@ export class Task {
     edit() {
 
     }
-
-    delete() {
-
-    }
 }
 
 class List {
@@ -35,6 +31,11 @@ class List {
 
     add(name, description, project, date) {
         this.#listItems.push(new Task(name, description, project, date));
+        Events.emit("updateTasks");
+    }
+
+    delete(task) {
+        this.#listItems = this.list.filter(tasks => tasks.name != task.name);
         Events.emit("updateTasks");
     }
 }

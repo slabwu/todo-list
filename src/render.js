@@ -65,7 +65,7 @@ class Renderer {
             let star = (task.priority) ? "star" : "star_outline";
             addIcon(star, taskContainer, (e) => {task.favourite()});
             addIcon("edit", taskContainer, () => {});
-            addIcon("close", taskContainer, () => {});
+            addIcon("close", taskContainer, () => {Tasks.delete(task)});
 
             let elements = [...document.getElementById(`${taskContainer}`).children];
 
