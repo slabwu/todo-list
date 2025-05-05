@@ -17,6 +17,7 @@ export class Dialog {
             this.answers.date = (this.answers.date) ? new Date(this.answers.date).toLocaleDateString() : "";
             Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
             this.close();
+            this.clear();
         });
     }
     
@@ -26,6 +27,21 @@ export class Dialog {
 
     close() {
         this.reference.close();
+    }
+
+    clear() {
+        [...document.querySelector(`#${this.name} form`).children].forEach(element => {
+            switch(element.name) {
+                case 'name':
+                case 'description':
+                case 'date':
+                    element.value = '';
+                    break;
+                case 'project':
+                    element.value = 'Home';
+                    break;
+            }
+        });
     }
 
     get source() {
