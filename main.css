@@ -1,12 +1,23 @@
+:root {
+    --light: rgb(202, 195, 240);
+    --mid: rgb(181, 172, 233);
+    --dark: darkslateblue;
+}
+
+
+
+
+
 body {
     background-color: white;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Arial, sans-serif;
+    color: var(--dark);
     margin: 0;
 }
 
 #content {
     display: grid;
-    grid: 1fr 10fr 1fr / 200px 1fr;
+    grid: 80px 1fr 40px / 300px 1fr;
     width: 100vw;
     height: 100vh;
     grid-template-areas:
@@ -17,47 +28,85 @@ body {
 
 #content > header {
     grid-area: head;
-    background-color: red;
+    background-color: var(--dark);
+    color: white;
+    padding-left: 30px;
+    display: flex;
 }
 
 #content > nav {
     grid-area: side;
-    background-color: blue;
+    background-color: var(--light);
 }
 
 #content > main {
     grid-area: main;
     background-color: white;
+    padding: 10px 50px 0;
 }
 
 #content > footer {
     grid-area: foot;
-    background-color: purple;
+    background-color: var(--dark);
 }
 
 
 
 
+
+header .material-icons {
+    font-size: 45px;
+    position: relative;
+    margin-right: -2px;
+    top: 16px;
+    right: 12px;
+}
 
 #projectList {
     display: flex;
     flex-direction: column;
+    gap: 5px;
+    padding: 20px;
 }
 
 #projectList > button{
-    color: white;
-    background-color: green;
-    font-size: 20px;
-    padding: 20px 50px 20px 0;
+    font-weight: normal;
+    background-color: var(--light);
+    color: var(--dark);
+    font-size: 18px;
+    padding: 5px 0 15px 30px;
     border: none;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#projectList > button > i {
+    position: relative;
+    top: 5px;
+    right: 10px;
 }
 
 #projectList > button:hover {
-    background-color: lime;
+    background-color: var(--mid);
 }
 
 #projectList > button.active {
-    background-color: aqua;
+    background-color: var(--dark);
+    font-weight: bold;
+    color: white;
+}
+
+
+
+
+
+#mainContainer {
+    background-color: white;
+}
+
+#mainContainer .projectTitle {
+    font-size: 40px;
 }
 
 
@@ -66,12 +115,30 @@ body {
 
 #addTaskBtn {
     border: none;
-    padding: 20px 40px 20px;
-    font-size: 14px;
-    color: white;
-    background-color: purple;
+    width: 100%;
     border-radius: 10px;
-    margin-bottom: 20px;
+    height: 50px;
+    padding: 0 0 10px 23px;
+    background-color: white;
+    color: var(--dark);
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    flex: 0 0 16px;
+}
+
+#addTaskBtn:hover {
+    background-color: var(--light);
+}
+
+#addTaskBtn::before {
+    content: '+  ';
+    font-size: 35px;
+    font-weight: bolder;
+    position: relative;
+    top: 6px;
+    left: -9px;
+    margin-right: -4px;
 }
 
 
@@ -79,27 +146,119 @@ body {
 
 
 dialog {
-    padding: 30px;
+    padding: 0 20px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
+    color: var(--dark);
+}
+
+
+
+dialog p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+dialog label {
+    font-size: 14px;
+}
+
+form input[type="text"] {
+    margin-top: 5px;
+    width: 300px;
+    border: solid 1px var(--light);
+    padding: 5px 10px 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+form label[for="name"]::after {
+    content: '*';
+    color: var(--mid);
+}
+
+form textarea {
+    margin-top: 5px;
+    width: 300px !important;
+    font-family: Arial;
+    resize: none;
+    border: solid 1px var(--light);
+    padding: 5px 10px 5px;
+    height: 32px;
+    border-radius: 5px;
+    margin-bottom: 14px;
+}
+
+form input[type="date"] {
+    font-family: Arial;
+    resize: none;
+    border: solid 1px var(--light);
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 14px;
+}
+
+form select {
+    border: solid 1px var(--light);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+form .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    margin-left: 132px;
+    
+}
+
+form .buttons button {
+    border-radius: 5px;
+    border: none;
+    height: 34px;
+    width: 90px;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+form .buttons #confirmBtn {
+    color: white;
+    background-color: var(--dark);
 }
 
 
 
 
+
+#taskList {
+    display: flex;
+    flex-direction: column;
+}
 
 .task {
     display: flex;
-    width: 500px;
     align-items: center;
-    border: 1px grey solid;
-    padding: 10px;
-    margin-bottom: 10px;
     border-radius: 10px;
+    height: 50px;
+    padding: 0 16px;
+}
+
+.task:hover {
+    background-color: var(--light);
+}
+
+.task .checkbox {
+    height: 14px;
+    width: 14px;
+    border: solid 2px var(--dark);
+    border-radius: 10px;
+    background-color: none;
+    margin-right: 14px;
+    cursor: pointer;
 }
 
 .task .name {
-    flex: 0 0 80px;
+    flex: 0 1 250px;
     font-weight: bold;
 }
 
@@ -107,15 +266,49 @@ dialog {
     flex: 1;
 }
 
+.task .date {
+    margin-right: 30px;
+}
+
+.task i {
+    margin-right: 5px;
+}
+
+.task .date.overdue {
+    color: red;
+
+}
+
+i.material-icons {
+    cursor: pointer;
+}
+
+.divider {
+    background-color: var(--light);
+    height: 1px;
+    margin: 0 10px 0;
+}
+
+
+
+
+
+.task .checkbox.completed {
+    background-color: var(--dark);
+}
+
 .task .name.completed {
     text-decoration: line-through;
+    opacity: 30%;
 }
 
 .task .description.completed {
     text-decoration: line-through;
+    opacity: 30%;
 }
 
-/* .task button.x {
-    width: 30px;
-    height: 30px;
-} */
+.task .date.completed {
+    text-decoration: line-through;
+    opacity: 30%;
+    color: var(--dark);
+}
