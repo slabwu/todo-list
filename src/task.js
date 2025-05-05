@@ -14,7 +14,7 @@ export class Task {
 
     favourite() {
         this.priority = (this.priority) ? false : true;
-        Events.emit("updateTasks")
+        Events.emit("updateTasks");
     }
 
     edit() {
