@@ -100,3 +100,8 @@ export function filterTasks(tasks) {
             return tasks.filter(task => task.project === Projects.current);
     }
 }
+
+export function getDate(date) {
+    let parts = date.split('/');
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+}

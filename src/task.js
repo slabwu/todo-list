@@ -1,6 +1,7 @@
 import { constructFrom } from "date-fns";
 import { test } from "./helper";
 import { Events } from "./pubsub";
+import { TaskDialog } from "./dialog";
 
 export class Task {
     constructor(name, description, project, date = undefined) {
@@ -17,8 +18,13 @@ export class Task {
         Events.emit("updateTasks");
     }
 
-    edit() {
-
+    async edit() {
+        let fields = await TaskDialog.edit({name: this.name, description: this.description, project: this.project, date: this.date});
+        this.name = fields.name;
+        this.description = fields.description;
+        this.project = fields.project;
+        this.date = fields.date;
+        Events.emit("updateTasks");
     }
 }
 

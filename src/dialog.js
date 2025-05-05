@@ -1,4 +1,5 @@
 import { Tasks } from "./task";
+import { getDate } from "./helper";
 
 export class Dialog {
     constructor(name) {
@@ -6,7 +7,12 @@ export class Dialog {
         this.reference = document.getElementById(`${name}`);
         this.answers = {};
 
-        this.confirmBtn = document.getElementById("confirmBtn");
+        let closeBtn = document.getElementById("closeBtn");
+        closeBtn.addEventListener("click", () => {
+            this.close();
+        });
+
+        let confirmBtn = document.getElementById("confirmBtn");
         confirmBtn.addEventListener("click", (e) => {
             e.preventDefault();
             [...document.querySelector(`#${name} form`).children].forEach(element => {
@@ -15,18 +21,23 @@ export class Dialog {
                 }
             });
             this.answers.date = (this.answers.date) ? new Date(this.answers.date).toLocaleDateString() : "";
-            Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
+
+            if (document.getElementById("dialogTitle").innerHTML === 'Add Task') {
+                Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
+            }
+
             this.close();
-            this.clear();
         });
     }
     
     open() {
+        document.getElementById("dialogTitle").innerHTML = 'Add Task';
         this.reference.showModal();
     }
 
     close() {
         this.reference.close();
+        this.clear();
     }
 
     clear() {
@@ -46,6 +57,28 @@ export class Dialog {
 
     get source() {
         return this.reference;
+    }
+
+    async edit(fields) {
+        this.open();
+        document.getElementById("dialogTitle").innerHTML = 'Edit Task';
+        [...document.querySelector(`#${this.name} form`).children].forEach(element => {
+            if (element.name in fields) {
+                if (element.name == 'date') {
+                    element.value = getDate(fields.date);
+                } else { 
+                    element.value = fields[element.name];
+                }
+            }
+        });
+
+        await new Promise(resolve => {
+            document.getElementById("confirmBtn").addEventListener('click', () => {
+              resolve();
+            }, { once: true });
+        });
+
+        return this.answers;
     }
 }
 

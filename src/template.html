@@ -8,7 +8,7 @@
 </head>
 <body>
     <dialog id="toDoDialog">
-        <p>Add Task</p>
+        <p id="dialogTitle">Add Task</p>
         <form method="dialog" action="./index.js">
             <label for="name">Title</label> <br>
             <input type="text" id="name" name="name"> <br>
@@ -29,7 +29,7 @@
             <br>
 
             <div class="buttons">
-                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="closeBtn" value="cancel" formmethod="dialog">Cancel</button>
                 <button id="confirmBtn" value="default">Confirm</button>
             </div>
         </form>
