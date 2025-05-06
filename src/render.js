@@ -42,10 +42,25 @@ class Renderer {
                 [...document.querySelector("#projectList").children].forEach(project => {
                     project.classList.remove("active");
                 });
-                document.querySelector(`#${camelCase(Projects.current)}Btn`).classList.add("active");
+                let current = document.querySelector(`#${camelCase(Projects.current)}Btn`);
+                console.log(Projects.current);
+                if (current) {
+                    document.querySelector(`#${camelCase(Projects.current)}Btn`).classList.add("active");
+                } else {
+                    document.querySelector(`#inboxBtn`).classList.add("active");
+                    Projects.current = 'Inbox';
+                }
             }, icon);
-            if (index === 0) document.querySelector(`#inboxBtn`).classList.add("active");
-        })
+            if (index > 3) addIcon("close", `${camelCase(project.name)}Btn`, () => {Projects.delete(project)});
+        });
+
+        [...document.querySelector("#projectList").children].forEach(project => {
+            project.classList.remove("active");
+        });
+        let current = document.querySelector(`#${camelCase(Projects.current)}Btn`);
+        if (current) {
+            document.querySelector(`#${camelCase(Projects.current)}Btn`).classList.add("active");
+        }
     }
 
     renderTasks() {

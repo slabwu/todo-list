@@ -20,9 +20,12 @@ let defaultTasks = [
     ["Revise", "Read Chapter 4-6 and prepare notes", "Study", "28/01/2025"],
     ["Repair", "Buy a new bulb to fix the ceiling light", "Home", "06/06/2025"],
     ["Report", "Submit financial report to HR", "Work", "15/10/2025"],
-    ["Essay", "Edit conclusion and add references", "Study", "12/04/2025"]
+    ["Essay", "Edit conclusion and add references", "Study", "12/04/2025"],
+    ["Homework", "Complete exercise problems", "Home", "02/12/2026"],
+    ["Finals", "Finish practice paper 1 & 2", "Study", "09/09/2025"]
 ];
 let tasks = localStorage.getItem('tasks')
+tasks = '';
 
 if (tasks && JSON.parse(tasks).length > 1) {
     JSON.parse(tasks).forEach(task => Tasks.add(task.name, task.description, task.project, task.date, task.completed, task.priority));
@@ -33,6 +36,7 @@ if (tasks && JSON.parse(tasks).length > 1) {
 
 let defaultProjects = [ "Inbox", "Important", "Overdue", "Upcoming", "Home", "Work", "Study" ];
 let projects = localStorage.getItem('projects')
+projects = '';
 
 if (projects && JSON.parse(projects).length > 1) {
     JSON.parse(projects).forEach(project => Projects.add(project.name));

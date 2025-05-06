@@ -14,28 +14,34 @@ export class Dialog {
         if (name === "toDoDialog") {
             let closeBtn = document.getElementById("closeBtn");
             closeBtn.addEventListener("click", () => {
+                document.querySelector(`form input[type="text"]`).classList.remove('invalid');
                 this.close();
             });
 
             let confirmBtn = document.getElementById("confirmBtn");
             confirmBtn.addEventListener("click", (e) => {
                 e.preventDefault();
+
                 [...document.querySelector(`#${name} form`).children].forEach(element => {
                     if (element.name) {
                         this.answers[element.name] = element.value;
                     }
                 });
                 this.answers.date = (this.answers.date) ? new Date(this.answers.date).toLocaleDateString() : "";
-
-                if (document.getElementById("dialogTitle").innerHTML === 'Add Task') {
+                
+                if (document.getElementById("dialogTitle").innerHTML === 'Add Task' && this.answers.name) {
                     Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
+                    this.close();
+                } else if (document.getElementById("dialogTitle").innerHTML === 'Edit Task') {
+                    this.close();
+                } else {
+                    document.querySelector(`form input[type="text"]`).classList.add('invalid');
                 }
-
-                this.close();
             });
         } else if (name === "projectDialog") {
             let projectCloseBtn = document.getElementById("projectCloseBtn");
             projectCloseBtn.addEventListener("click", () => {
+                document.querySelector(`form input[type="text"]#projectName`).classList.add('invalid');
                 this.close();
             });
     
@@ -44,15 +50,19 @@ export class Dialog {
                 e.preventDefault();
                 [...document.querySelector(`#projectDialog form`).children].forEach(element => {
                     if (element.name && element.value) {
-                        Projects.add(element.value)
+                        Projects.add(element.value);
+                        Projects.current = element.value;
+                        this.close();
+                    } else {
+                        document.querySelector(`form input[type="text"]#projectName`).classList.add('invalid');
                     }
                 });
-    
-                this.close();
             });
         }};
     
     open() {
+        document.querySelector(`form input[type="text"]`).classList.remove('invalid');
+        document.querySelector(`form input[type="text"]#projectName`).classList.remove('invalid');
         document.getElementById("dialogTitle").innerHTML = 'Add Task';
         this.reference.showModal();
     }
