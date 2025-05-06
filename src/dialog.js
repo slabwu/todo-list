@@ -11,28 +11,47 @@ export class Dialog {
 
         Events.on("updateProjects", this.populate);
         
-        let closeBtn = document.getElementById("closeBtn");
-        closeBtn.addEventListener("click", () => {
-            this.close();
-        });
-
-        let confirmBtn = document.getElementById("confirmBtn");
-        confirmBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            [...document.querySelector(`#${name} form`).children].forEach(element => {
-                if (element.name) {
-                    this.answers[element.name] = element.value;
-                }
+        if (name === "toDoDialog") {
+            let closeBtn = document.getElementById("closeBtn");
+            closeBtn.addEventListener("click", () => {
+                this.close();
             });
-            this.answers.date = (this.answers.date) ? new Date(this.answers.date).toLocaleDateString() : "";
 
-            if (document.getElementById("dialogTitle").innerHTML === 'Add Task') {
-                Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
-            }
 
-            this.close();
-        });
-    }
+            let confirmBtn = document.getElementById("confirmBtn");
+            confirmBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                [...document.querySelector(`#${name} form`).children].forEach(element => {
+                    if (element.name) {
+                        this.answers[element.name] = element.value;
+                    }
+                });
+                this.answers.date = (this.answers.date) ? new Date(this.answers.date).toLocaleDateString() : "";
+
+                if (document.getElementById("dialogTitle").innerHTML === 'Add Task') {
+                    Tasks.add(`${this.answers.name}`,`${this.answers.description}`, `${this.answers.project}`, `${this.answers.date}`);
+                }
+
+                this.close();
+            });
+        } else if (name === "projectDialog") {
+            let projectCloseBtn = document.getElementById("projectCloseBtn");
+            projectCloseBtn.addEventListener("click", () => {
+                this.close();
+            });
+    
+            let projectConfirmBtn = document.getElementById("projectConfirmBtn");
+            projectConfirmBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                [...document.querySelector(`#projectDialog form`).children].forEach(element => {
+                    if (element.name && element.value) {
+                        Projects.add(element.value)
+                    }
+                });
+    
+                this.close();
+            });
+        }};
     
     open() {
         document.getElementById("dialogTitle").innerHTML = 'Add Task';
