@@ -1,4 +1,6 @@
 import { Tasks } from "./task";
+import { Project, Projects } from "./project";
+import { Events } from "./pubsub";
 import { getDate } from "./helper";
 
 export class Dialog {
@@ -7,6 +9,8 @@ export class Dialog {
         this.reference = document.getElementById(`${name}`);
         this.answers = {};
 
+        Events.on("updateProjects", this.populate);
+        
         let closeBtn = document.getElementById("closeBtn");
         closeBtn.addEventListener("click", () => {
             this.close();
@@ -80,6 +84,19 @@ export class Dialog {
 
         return this.answers;
     }
+
+    populate() {
+        let options = document.getElementById("project");
+        options.innerHTML = '';
+        let projects = Projects.list;
+        for (let i = 4; i < projects.length; i++) {
+            const element = document.createElement("option");
+            element.value = projects[i].name;
+            element.innerHTML = projects[i].name;
+            options.appendChild(element);
+        }
+    }
 }
 
 export const TaskDialog = new Dialog("toDoDialog");
+export const ProjectDialog = new Dialog("projectDialog");

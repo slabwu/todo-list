@@ -21,9 +21,6 @@
 
             <label for="project">Project</label>
             <select name="project" id="project">
-                <option value="Home">Home</option>
-                <option value="Work">Work</option>
-                <option value="Study">Study</option>
             </select>
 
             <br>
@@ -33,6 +30,21 @@
                 <button id="confirmBtn" value="default">Confirm</button>
             </div>
         </form>
-      </dialog>      
+      </dialog> 
+      
+      <dialog id="projectDialog">
+        <p id="dialogTitle">Add Project</p>
+        <form method="dialog" action="./index.js">
+            <label for="name">Title</label> <br>
+            <input type="text" id="projectName" name="name"> <br>
+
+            <br>
+
+            <div class="buttons">
+                <button id="projectCloseBtn" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="projectConfirmBtn" value="default">Confirm</button>
+            </div>
+        </form>
+      </dialog>
 </body>
 </html>

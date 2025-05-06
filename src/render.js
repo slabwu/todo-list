@@ -2,7 +2,7 @@ import { Events } from "./pubsub";
 import { test, addElement, addTextElement, addButton, deleteElementsFrom, camelCase, addCheckbox, overdue, filterTasks, addIcon } from "./helper";
 import { Tasks } from "./task";
 import { Project, Projects } from "./project";
-import { TaskDialog } from "./dialog";
+import { TaskDialog, ProjectDialog } from "./dialog";
 
 class Renderer {
     projectTitle;
@@ -21,6 +21,7 @@ class Renderer {
         addTextElement("Right Now", "h1", "header", "title");
         addTextElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle");
         addElement("projectList", "div", "sidebar");
+        addButton("Add Project", "sidebar", () => {ProjectDialog.open()});
         addElement("taskList", "div", "mainContainer");
         addButton("Add Task", "mainContainer", () => {TaskDialog.open()});
     }
