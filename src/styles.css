@@ -258,6 +258,12 @@ form .buttons #confirmBtn, form .buttons #projectConfirmBtn {
     background-color: var(--dark);
 }
 
+form input[type="text"]#projectName {
+    margin-bottom: -100px;
+}
+
+
+
 
 
 
