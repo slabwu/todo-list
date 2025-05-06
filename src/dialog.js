@@ -14,7 +14,7 @@ export class Dialog {
         if (name === "toDoDialog") {
             let closeBtn = document.getElementById("closeBtn");
             closeBtn.addEventListener("click", () => {
-                document.querySelector(`form input[type="text"]`).classList.remove('invalid');
+                document.querySelector(`form input`).classList.remove('invalid');
                 this.close();
             });
 
@@ -35,13 +35,13 @@ export class Dialog {
                 } else if (document.getElementById("dialogTitle").innerHTML === 'Edit Task') {
                     this.close();
                 } else {
-                    document.querySelector(`form input[type="text"]`).classList.add('invalid');
+                    document.querySelector(`form input`).classList.add('invalid');
                 }
             });
         } else if (name === "projectDialog") {
             let projectCloseBtn = document.getElementById("projectCloseBtn");
             projectCloseBtn.addEventListener("click", () => {
-                document.querySelector(`form input[type="text"]#projectName`).classList.add('invalid');
+                document.querySelector(`form input#projectName`).classList.add('invalid');
                 this.close();
             });
     
@@ -54,15 +54,15 @@ export class Dialog {
                         Projects.current = element.value;
                         this.close();
                     } else {
-                        document.querySelector(`form input[type="text"]#projectName`).classList.add('invalid');
+                        document.querySelector(`form input#projectName`).classList.add('invalid');
                     }
                 });
             });
         }};
     
     open() {
-        document.querySelector(`form input[type="text"]`).classList.remove('invalid');
-        document.querySelector(`form input[type="text"]#projectName`).classList.remove('invalid');
+        document.querySelector(`form input`).classList.remove('invalid');
+        document.querySelector(`form input#projectName`).classList.remove('invalid');
         document.getElementById("dialogTitle").innerHTML = 'Add Task';
         this.reference.showModal();
     }
