@@ -34,3 +34,4 @@ class ProjectManager {
 }
 
 export const Projects = new ProjectManager;
+Events.on("updateProjects", () => {localStorage.setItem('projects', JSON.stringify(Projects.list))});

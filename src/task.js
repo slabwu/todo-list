@@ -4,13 +4,13 @@ import { Events } from "./pubsub";
 import { TaskDialog } from "./dialog";
 
 export class Task {
-    constructor(name, description, project, date = undefined) {
+    constructor(name, description, project, date = undefined, completed = false, priority = false) {
         this.name = name;
         this.description = description;
         this.project = project;
         this.date = date;
-        this.completed = false;
-        this.priority = false;
+        this.completed = completed;
+        this.priority = priority;
     }
 
     favourite() {
@@ -35,8 +35,8 @@ class List {
         return this.#listItems;
     }
 
-    add(name, description, project, date) {
-        this.#listItems.push(new Task(name, description, project, date));
+    add(name, description, project, date, completed, priority) {
+        this.#listItems.push(new Task(name, description, project, date, completed, priority));
         Events.emit("updateTasks");
     }
 
@@ -47,3 +47,4 @@ class List {
 }
 
 export const Tasks = new List;
+Events.on("updateTasks", () => {localStorage.setItem('tasks', JSON.stringify(Tasks.list))});

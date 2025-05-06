@@ -21,7 +21,7 @@ class Renderer {
         addTextElement("Right Now", "h1", "header", "title");
         addTextElement(`${Projects.current}`, "h2", "mainContainer", "projectTitle");
         addElement("projectList", "div", "sidebar");
-        addButton("Add Project", "sidebar", () => {ProjectDialog.open()});
+        addButton("Add Project", "sidebar", () => {ProjectDialog.open()}, 'add');
         addElement("taskList", "div", "mainContainer");
         addButton("Add Task", "mainContainer", () => {TaskDialog.open()});
     }

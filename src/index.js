@@ -18,7 +18,20 @@ let defaultTasks = [
     ["Report", "Submit financial report to HR", "Work", "15/10/2025"],
     ["Essay", "Edit conclusion and add references", "Study", "12/04/2025"]
 ];
-defaultTasks.forEach(task => Tasks.add(task[0], task[1], task[2], task[3]));
+let tasks = localStorage.getItem('tasks')
+
+if (tasks && JSON.parse(tasks).length > 1) {
+    JSON.parse(tasks).forEach(task => Tasks.add(task.name, task.description, task.project, task.date, task.completed, task.priority));
+} else {
+    defaultTasks.forEach(task => Tasks.add(task[0], task[1], task[2], task[3]));
+}
+
 
 let defaultProjects = [ "Inbox", "Important", "Overdue", "Upcoming", "Home", "Work", "Study" ];
-defaultProjects.forEach(project => Projects.add(project));
+let projects = localStorage.getItem('projects')
+
+if (projects && JSON.parse(projects).length > 1) {
+    JSON.parse(projects).forEach(project => Projects.add(project.name));
+} else {
+    defaultProjects.forEach(project => Projects.add(project));
+}

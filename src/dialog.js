@@ -17,7 +17,6 @@ export class Dialog {
                 this.close();
             });
 
-
             let confirmBtn = document.getElementById("confirmBtn");
             confirmBtn.addEventListener("click", (e) => {
                 e.preventDefault();
